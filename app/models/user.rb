@@ -4,5 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         enum role: { receptionist: 0, doctor: 1 }
+  validates :first_name, :last_name, :role, presence: true
+
+  has_many :doctor_appointments
+
+  def doctor?
+    role == 'Doctor'
+  end
+
+  def receptionist?
+    role == 'Receptionist'
+  end
 end
