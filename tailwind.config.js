@@ -7,7 +7,11 @@ module.exports = {
     './app/views/**/*',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'custom-bg': "url('/assets/images/background.png')",
+      },
+    },
   },
   plugins: []
 }

@@ -11,7 +11,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body>
+  <body style="background-image: url('<%= asset_path("background.png") %>'); background-size: cover; background-position: center; height: 100vh;">
   <% if user_signed_in? %>
     <%= link_to 'Sign Out', destroy_user_session_path, data: { "turbo-method": :delete }, class: "text-white border p-2 rounded-md m-2 border-gray-200 bg-red-400" %>
     <% if can? :manage, @patient %>
@@ -21,8 +21,7 @@
     <%= link_to 'Create Appointment', new_doctor_appointment_path, class: "text-white border p-2 rounded-md m-2 border-gray-200 bg-blue-400" %>
     <%= link_to 'Dashboard', authenticated_root_path, class: "text-white border p-2 rounded-md m-2 border-gray-200 bg-gray-400" %>
   <% else %>
-    <%= link_to 'Login', new_user_session_path, class: "text-white border p-2 rounded-md m-2 border-gray-200 bg-orange-400" %> |
-    <%= link_to 'Sign Up', new_user_registration_path, class: "text-white border p-2 rounded-md m-2 border-gray-200 bg-yellow-400" %>
+    
   <% end %>
 
        <p class="notice"><%= notice %></p>  
