@@ -1,14 +1,13 @@
-<div class="bg-white shadow-md rounded-lg p-6 w-[60%] m-auto mt-[40px]">
-  
-<h1 class="text-center text-gray-700 text-2xl font-semibold mb-8">Create Doctor Appointment</h1>
+<div class="bg-white shadow-md rounded-lg p-6 w-[60%] m-auto mt-[40px] min-h-[60vh]">
+    <h1 class="text-center text-2xl font-semibold text-cyan-500 mb-8">Create Appointment</h1>
 
-<%= render "form", doctor_appointment: @doctor_appointment %>
+    <%= render "form", doctor_appointment: @doctor_appointment %>
 
-<br>
+    <br>
 
-<div class="">
-  <%= link_to doctor_appointments_path, class: "flex items-center text-gray-700 hover:underline " do %>
-    <i class="fas fa-arrow-left mr-2 mt-1"></i> View appointments
-  <% end %>
-</div>
+    <div class="">
+        <%= link_to doctor_appointments_path, class: "flex items-center text-gray-700 hover:underline " do %>
+        <i class="fas fa-arrow-left mr-2 mt-1"></i> View appointments
+        <% end %>
+    </div>
 </div>

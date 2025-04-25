@@ -1,41 +1,45 @@
 <div class=" m-auto">
-  <%= form_with(model: patient, class: '') do |form| %>
-  <% if patient.errors.any? %>
+    <%= form_with(model: patient, class: '') do |form| %>
+    <% if patient.errors.any? %>
     <div class="text-red-500">
-      <h2 class="font-semibold"><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+        <h2 class="font-semibold"><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
 
-      <ul class="list-disc ml-8">
-        <% patient.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul class="list-disc ml-8">
+            <% patient.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="mb-4">
-    <%= form.label :first_name, class: 'block text-sm font-medium text-gray-700' %>
-    <%= form.text_field :first_name, class: 'mt-1 p-2 w-full border rounded-md' %>
-  </div>
+    <div class="mb-4">
+        <%= form.label :first_name, class: 'block text-sm font-medium text-gray-700' %>
+        <%= form.text_field :first_name, class: 'mt-1 p-2 w-full border rounded-md' %>
+    </div>
 
-  <div class="mb-4">
-    <%= form.label :last_name, class: 'block text-sm font-medium text-gray-700' %>
-    <%= form.text_field :last_name, class: 'mt-1 p-2 w-full border rounded-md' %>
-  </div>
+    <div class="mb-4">
+        <%= form.label :last_name, class: 'block text-sm font-medium text-gray-700' %>
+        <%= form.text_field :last_name, class: 'mt-1 p-2 w-full border rounded-md' %>
+    </div>
 
-  <div class="mb-4">
-    <%= form.label :age, class: 'block text-sm font-medium text-gray-700' %>
-    <%= form.number_field :age, class: 'mt-1 p-2 w-full border rounded-md' %>
-  </div>
+    <div class="mb-4">
+        <%= form.label :age, class: 'block text-sm font-medium text-gray-700' %>
+        <%= form.number_field :age, class: 'mt-1 p-2 w-full border rounded-md' %>
+    </div>
 
-  <div class="mb-4">
-    <%= form.label :address, class: 'block text-sm font-medium text-gray-700' %>
-    <%= form.text_field :address, class: 'mt-1 p-2 w-full border rounded-md' %>
-  </div>
+    <div class="mb-4">
+        <%= form.label :address, class: 'block text-sm font-medium text-gray-700' %>
+        <%= form.text_field :address, class: 'mt-1 p-2 w-full border rounded-md' %>
+    </div>
 
 
     <div class="w-full flex justify-center">
-      <%= form.submit "Create",  class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ' %>
+        <% if patient.new_record? %>
+        <%= form.submit "Create Patient", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+        <% else %>
+        <%= form.submit "Update Patient", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+        <% end %>
     </div>
-<% end %>
+    <% end %>
 
 </div>

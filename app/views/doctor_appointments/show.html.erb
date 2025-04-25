@@ -1,26 +1,31 @@
-<p style="color: green"><%= notice %></p>
+<div class="bg-white shadow-md rounded-lg p-6 w-[60%] m-auto mt-[40px] min-h-[60vh]">
+    <h1 class="text-center text-2xl font-semibold text-cyan-500 mb-8">Appointment Details</h1>
 
-
-
-<table class="min-w-full table-auto border border-gray-300">
-          <thead>
+    <table class="min-w-full table-auto border border-gray-300">
+        <thead>
             <tr>
-              <th class="px-4 py-2">Name</th>
-              <th class="px-4 py-2">Date</th>
-              <th class="px-4 py-2">Illness</th>
-              <% if can? :manage, @patient %>
-                <th class="px-4 py-2">Actions</th>
-              <% end %>
+                <th class="px-4 py-2">Patient Name</th>
+                <% if can? :manage, @patient %>
+                <th class="px-4 py-2">Doctor Name</th>
+                <% end %>
+                <th class="px-4 py-2">Date</th>
+                <th class="px-4 py-2">Illness</th>
             </tr>
-          </thead>
-          <tbody>
-           <%= render @doctor_appointment %>
-          </tbody>
-        </table>
+        </thead>
+        <tbody>
+            <tr>
+                <%= render @doctor_appointment %>
+            </tr>
+        </tbody>
+    </table>
 
-<div>
-  <%= link_to "Edit this doctor appointment", edit_doctor_appointment_path(@doctor_appointment) %> |
-  <%= link_to "Back to doctor appointments", doctor_appointments_path %>
-
-  <%= button_to "Destroy this doctor appointment", @doctor_appointment, method: :delete %>
+    <div class="w-full flex justify-center mt-6 gap-4">
+        <%= link_to "Edit Appointment", edit_doctor_appointment_path(@doctor_appointment), 
+        class: 'bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded' %>
+        <%= link_to "Back to Appointments", doctor_appointments_path, 
+        class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded' %>
+        <%= button_to "Delete Appointment", @doctor_appointment, method: :delete, 
+        class: 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded',
+        form: { data: { turbo_confirm: "Are you sure you want to delete this appointment?" } } %>
+    </div>
 </div>
