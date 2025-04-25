@@ -7,9 +7,13 @@
   <img src="./hospital_app_ERD.png" alt="Database Entity Relationship Diagram" width="450" height="auto">
   <br/>
 
+
   <p>
     <em>A comprehensive web-based solution for efficient hospital management</em>
   </p>
+
+https://github.com/user-attachments/assets/e71f878f-deab-4f6a-b5fc-7ee082bf7327
+
 
 </div>
 
@@ -121,8 +125,8 @@ The following tools and environments are required:
 Clone this repository to your desired location:
 
 ```sh
-  git clone https://github.com/danielochuba/hospital_app.git
-  cd hospital_app
+  git clone https://github.com/danielochuba/coding-assessment.git
+  cd coding-assessment
 ```
 
 ### Install <a name="install"></a>
@@ -166,17 +170,6 @@ Start the Rails server:
 
 Then open your browser and navigate to `http://localhost:3000`
 
-#### Default Login Credentials
-
-For testing purposes, you can use the following credentials:
-
-- **Receptionist:**
-  - Email: receptionist@hospital.com
-  - Password: password123
-
-- **Doctor:**
-  - Email: doctor@hospital.com
-  - Password: password123
 
 ### Run Tests <a name="run-tests"></a>
 
@@ -230,7 +223,7 @@ To contribute to this project:
 5. Push to the branch (`git push origin feature/amazing-feature`)
 6. Open a Pull Request
 
-Feel free to check the [issues page](https://github.com/danielochuba/hospital_app/issues) for open issues or to report new ones.
+Feel free to check the [issues page](https://github.com/danielochuba/coding-assessment/issues) for open issues or to report new ones.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
