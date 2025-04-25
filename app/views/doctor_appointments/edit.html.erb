@@ -1,0 +1,12 @@
+<div class="bg-white shadow-md rounded-lg p-6 w-[60%] m-auto mt-[40px] min-h-[60vh]">
+    <h1 class="text-center text-2xl font-semibold text-cyan-500 mb-8">Edit Appointment</h1>
+
+    <%= render "form", doctor_appointment: @doctor_appointment %>
+
+    <div class="w-full flex justify-center mt-6 gap-4">
+        <%= link_to "View Appointment", @doctor_appointment, 
+        class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+        <%= link_to "Back to Appointments", doctor_appointments_path, 
+        class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded' %>
+    </div>
+</div>

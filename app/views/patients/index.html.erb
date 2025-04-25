@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Patients</h1>
+
+<div id="patients">
+      <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <%= render patient %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<% if can? :create, @patient %>
+  <%= link_to "New patient", new_patient_path %>
+<% end %>
