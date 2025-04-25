@@ -8,7 +8,11 @@
   <br/>
 
 
-https://github.com/danielochuba/hospital_app/assets/81446846/1a57fe07-111e-4bd0-a88f-a1305c062f16
+
+
+
+https://github.com/user-attachments/assets/e71f878f-deab-4f6a-b5fc-7ee082bf7327
+
 
 
 </div>
