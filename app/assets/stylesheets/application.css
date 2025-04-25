@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 /*
 ! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
 */
@@ -22,6 +27,16 @@
   border-color: #e5e7eb;
 
   /* 2 */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Poppins', sans-serif;
 }
 
 ::before,

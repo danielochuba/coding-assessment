@@ -1,31 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Clinic Portal</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag 'rails_toastify', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'rails_toastify', 'data-turbo-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-  <body style="background-image: url('<%= asset_path("background.png") %>'); background-size: cover; background-position: center; height: 100vh;">
-  <% if user_signed_in? %>
-    <%= link_to 'Sign Out', destroy_user_session_path, data: { "turbo-method": :delete }, class: "text-white border p-2 rounded-md m-2 border-gray-200 bg-red-400" %>
-    <% if can? :manage, @patient %>
-      <%= link_to 'Create Patient', new_patient_path, class: "text-white border p-2 rounded-md m-2 border-gray-200 bg-green-400" %>
-      <%= link_to 'Appointments', doctor_appointments_path, class: "text-white border p-2 rounded-md m-2 border-gray-200 bg-green-400" %>
+</head>
+
+<body style="background-image: url('<%= asset_path("background.png") %>'); background-size: cover; background-position: center; height: 100vh;">
+    <%= rails_toastify_container %>
+    <%= rails_toastify_script %>
+
+    <nav class="py-4 px-6 w-full">
+        <div class="flex justify-end items-center w-full">
+            <% if user_signed_in? %>
+            <div class="flex gap-2 justify-end items-center w-full  bg-blue-500" style='justify-content: flex-end;'>
+                <%= link_to 'Dashboard', authenticated_root_path, class: "text-white px-4 py-2 rounded transition duration-300 hover:bg-gray-600 bg-gray-500" %>
+
+                <% if can? :manage, @patient %>
+                <%= link_to doctor_appointments_path, class: "text-white px-4 py-2 rounded transition duration-300 hover:bg-green-600 bg-green-500 flex items-center" do %>
+
+                <i class="fas fa-calendar-alt mr-2 mt-1"></i> Appointments
+                <% end %>
+
+                <%= link_to new_patient_path, class: "text-white px-4 py-2 rounded transition duration-300 hover:bg-green-600 bg-green-500 flex items-center" do %>
+                <i class="fas fa-user-plus mr-2 mt-1"></i> New Patient
+                <% end %>
+                <% end %>
+
+                <%= link_to new_doctor_appointment_path, class: "text-white px-4 py-2 rounded transition duration-300 hover:bg-blue-600 bg-blue-500 flex items-center" do %>
+                <i class="fas fa-calendar-plus mr-2 mt-1"></i> New Appointment
+                <% end %>
+
+                <%= link_to destroy_user_session_path, data: { "turbo-method": :delete }, class: "text-white px-4 py-2 rounded transition duration-300 hover:bg-red-600 bg-red-500 flex items-center" do %>
+                <i class="fas fa-sign-out-alt mr-2 mt-1"></i> Sign Out
+                <% end %>
+            </div>
+            <% end %>
+        </div>
+    </nav>
+
+    <% if notice %>
+    <script>
+        RailsToastify.show('<%= notice %>', {
+            theme: '<%= RailsToastify.configuration.notice_theme %>',
+            type: '<%= RailsToastify.configuration.notice_type %>',
+            animation: '<%= RailsToastify.configuration.notice_animation %>',
+            duration: '<%= RailsToastify.configuration.notice_duration %>'
+        })
+    </script>
     <% end %>
-    <%= link_to 'Create Appointment', new_doctor_appointment_path, class: "text-white border p-2 rounded-md m-2 border-gray-200 bg-blue-400" %>
-    <%= link_to 'Dashboard', authenticated_root_path, class: "text-white border p-2 rounded-md m-2 border-gray-200 bg-gray-400" %>
-  <% else %>
-    
-  <% end %>
 
-       <p class="notice"><%= notice %></p>  
-       <p class="alert"><%= alert %></p>
+    <% if alert %>
+    <script>
+        RailsToastify.show('<%= alert %>', {
+            theme: '<%= RailsToastify.configuration.alert_theme %>',
+            type: '<%= RailsToastify.configuration.alert_type %>',
+            animation: '<%= RailsToastify.configuration.alert_animation %>',
+            duration: '<%= RailsToastify.configuration.alert_duration %>'
+        })
+    </script>
+    <% end %>
     <%= yield %>
-  </body>
+</body>
+
 </html>

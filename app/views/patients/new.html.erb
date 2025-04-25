@@ -1,9 +1,13 @@
-<h1>New patient</h1>
+<div class="bg-white shadow-md rounded-lg p-6 w-[60%] m-auto mt-[40px]">
+<h1 class="text-center text-gray-700 text-2xl font-semibold mb-8">Create Patient</h1>
 
 <%= render "form", patient: @patient %>
 
 <br>
 
 <div>
-  <%= link_to "Back to patients", patients_path %>
+    <%= link_to authenticated_root_path, class: "flex items-center text-gray-700 hover:underline " do %>
+    <i class="fas fa-arrow-left mr-2 mt-1"></i> View patients
+  <% end %>
+</div>
 </div>

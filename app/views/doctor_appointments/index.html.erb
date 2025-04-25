@@ -1,5 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
+<div class="bg-white shadow-md rounded-lg p-6 w-[60%] m-auto mt-[40px] min-h-[60vh]">
 <h1 class="text-center text-2xl font-semibold text-cyan-500 mb-8">Doctor appointments</h1>
 
 <table class="min-w-full table-auto border border-gray-300">
@@ -27,4 +28,7 @@
         </table>
 
 
-<%= link_to "New doctor appointment", new_doctor_appointment_path %>
+<div class="w-full flex justify-center mt-2">
+    <%= link_to "Schedule Appointment", new_doctor_appointment_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ' %>
+  </div>
+</div>
